@@ -91,6 +91,7 @@ set(UI_FILES
     ui/coordinate_picker_config.ui
     ui/disparity_config.ui
     ui/draw_polygon_config.ui
+    ui/get_polygon_config.ui
     ui/gps_config.ui
     ui/grid_config.ui
     ui/image_config.ui
@@ -113,21 +114,22 @@ set(UI_FILES
 )
 
 set(SRC_FILES
-    src/attitude_indicator_plugin.cpp 
+    src/attitude_indicator_plugin.cpp
     src/canvas_click_filter.cpp
     src/coordinate_picker_plugin.cpp
     src/disparity_plugin.cpp
     src/draw_polygon_plugin.cpp
+    src/get_polygon_plugin.cpp
     src/gps_plugin.cpp
     src/grid_plugin.cpp
     src/image_plugin.cpp
     src/laserscan_plugin.cpp
-    src/marker_plugin.cpp 
-    src/measuring_plugin.cpp 
+    src/marker_plugin.cpp
+    src/measuring_plugin.cpp
     src/move_base_plugin.cpp
     src/navsat_plugin.cpp
     src/occupancy_grid_plugin.cpp
-    src/odometry_plugin.cpp 
+    src/odometry_plugin.cpp
     src/path_plugin.cpp
     src/placeable_window_proxy.cpp
     src/plan_route_plugin.cpp
@@ -147,6 +149,7 @@ set(HEADER_FILES
     include/${PROJECT_NAME}/coordinate_picker_plugin.h
     include/${PROJECT_NAME}/disparity_plugin.h
     include/${PROJECT_NAME}/draw_polygon_plugin.h
+    include/${PROJECT_NAME}/get_polygon_plugin.h
     include/${PROJECT_NAME}/gps_plugin.h
     include/${PROJECT_NAME}/grid_plugin.h
     include/${PROJECT_NAME}/image_plugin.h

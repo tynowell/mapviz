@@ -126,8 +126,13 @@ namespace mapviz_plugins
       has_message_ = true;
     }
 
+    static tf::TransformBroadcaster br;
+    tf::Transform transformBase;
+    tf::Quaternion qBase;
+
     StampedPoint stamped_point;
     stamped_point.stamp = navsat->header.stamp;
+    qBase.setRPY(0,0,0);
 
     double x;
     double y;
@@ -136,6 +141,13 @@ namespace mapviz_plugins
     stamped_point.point = tf::Point(x, y, navsat->altitude);
     stamped_point.orientation = tf::createQuaternionFromYaw(0.0);
     stamped_point.source_frame = tf_manager_->LocalXyUtil()->Frame();
+
+    transformBase.setOrigin(tf::Vector3(x, y, navsat->altitude));
+
+    transformBase.setRotation(qBase);
+
+    br.sendTransform(tf::StampedTransform(transformBase, navsat->header.stamp,
+                                          "map", "base_link"));
 
     pushPoint( std::move(stamped_point ) );
   }
