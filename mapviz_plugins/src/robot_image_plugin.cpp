@@ -415,4 +415,3 @@ namespace mapviz_plugins
     }
   }
 }
-

@@ -1,6 +1,6 @@
 <library path="lib/libmapviz_plugins">
-  <class name="mapviz_plugins/attitude_indicator" 
-         type="mapviz_plugins::AttitudeIndicatorPlugin" 
+  <class name="mapviz_plugins/attitude_indicator"
+         type="mapviz_plugins::AttitudeIndicatorPlugin"
          base_class_type="mapviz::MapvizPlugin">
     <description>
       Plugin to provide an intuitive visualization of orientations
@@ -49,6 +49,9 @@
   <class name="mapviz_plugins/plan_route" type="mapviz_plugins::PlanRoutePlugin" base_class_type="mapviz::MapvizPlugin">
     <description>Plan route mapviz plugin.</description>
   </class>
+  <class name="mapviz_plugins/precision" type="mapviz_plugins::PrecisionPlugin" base_class_type="mapviz::MapvizPlugin">
+    <description>Precision project mapviz plugin.</description>
+  </class>
   <class name="mapviz_plugins/route" type="mapviz_plugins::RoutePlugin" base_class_type="mapviz::MapvizPlugin">
     <description>Route mapviz plugin.</description>
   </class>
@@ -77,4 +80,3 @@
     <description>Display maps and other OccupancyGrids</description>
   </class>
 </library>
-

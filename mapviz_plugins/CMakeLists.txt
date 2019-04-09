@@ -13,17 +13,17 @@ set(DEPENDENCIES
   move_base_msgs
   nav_msgs
   map_msgs
-  pluginlib 
-  roscpp 
+  pluginlib
+  roscpp
   sensor_msgs
-  std_msgs 
+  std_msgs
   stereo_msgs
   swri_image_util
   swri_math_util
   swri_route_util
   swri_transform_util
   swri_yaml_util
-  tf 
+  tf
   visualization_msgs
 )
 
@@ -106,6 +106,7 @@ set(UI_FILES
     ui/plan_route_config.ui
     ui/point_click_publisher_config.ui
     ui/pointcloud2_config.ui
+    ui/precision_config.ui
     ui/robot_image_config.ui
     ui/route_config.ui
     ui/string_config.ui
@@ -136,6 +137,7 @@ set(SRC_FILES
     src/point_click_publisher_plugin.cpp
     src/pointcloud2_plugin.cpp
     src/point_drawing_plugin.cpp
+    src/precision_plugin.cpp
     src/robot_image_plugin.cpp
     src/route_plugin.cpp
     src/string_plugin.cpp
@@ -167,13 +169,14 @@ set(HEADER_FILES
     include/${PROJECT_NAME}/point_click_publisher_plugin.h
     include/${PROJECT_NAME}/pointcloud2_plugin.h
     include/${PROJECT_NAME}/point_drawing_plugin.h
+    include/${PROJECT_NAME}/precision_plugin.h
     include/${PROJECT_NAME}/robot_image_plugin.h
     include/${PROJECT_NAME}/route_plugin.h
     include/${PROJECT_NAME}/string_plugin.h
     include/${PROJECT_NAME}/textured_marker_plugin.h
     include/${PROJECT_NAME}/tf_frame_plugin.h
 )
-    
+
 if("$ENV{ROS_DISTRO}" STRLESS "kinetic")
   qt4_wrap_ui(UI_SRC_FILES ${UI_FILES})
   qt4_wrap_cpp(MOC_FILES ${HEADER_FILES})
@@ -214,4 +217,3 @@ install(TARGETS ${PROJECT_NAME}
 install(FILES ${PROJECT_NAME}.xml
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
-
