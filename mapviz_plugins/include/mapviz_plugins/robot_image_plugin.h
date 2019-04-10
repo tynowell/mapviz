@@ -43,6 +43,7 @@
 // ROS libraries
 #include <ros/ros.h>
 #include <tf/transform_datatypes.h>
+#include <std_msgs/String.h>
 
 #include <mapviz/map_canvas.h>
 
@@ -100,6 +101,7 @@ namespace mapviz_plugins
     double image_ratio_;
 
     std::string filename_;
+    std::string zone_;
     QImage      image_;
     int dimension_;
     int texture_id_;
@@ -117,8 +119,12 @@ namespace mapviz_plugins
     tf::Point bottom_left_transformed_;
     tf::Point bottom_right_transformed_;
 
+    ros::Subscriber zone_sub_;
+
     void UpdateShape();
     void LoadImage();
+
+    void ZoneCallback(const std_msgs::String zone);
   };
 }
 

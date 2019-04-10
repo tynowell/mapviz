@@ -66,6 +66,7 @@ endif()
 ### OpenGL ###
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)
+find_package(GDAL REQUIRED)
 
 catkin_package(
   INCLUDE_DIRS include

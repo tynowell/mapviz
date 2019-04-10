@@ -42,6 +42,7 @@
 
 // ROS libraries
 #include <ros/master.h>
+#include <std_msgs/String.h>
 
 #include <mapviz/select_frame_dialog.h>
 
@@ -87,6 +88,8 @@ namespace mapviz_plugins
     QObject::connect(ui_.ratio_equal, SIGNAL(toggled(bool)), this, SLOT(RatioEqualToggled(bool)));
     QObject::connect(ui_.ratio_custom, SIGNAL(toggled(bool)), this, SLOT(RatioCustomToggled(bool)));
     QObject::connect(ui_.ratio_original, SIGNAL(toggled(bool)), this, SLOT(RatioOriginalToggled(bool)));
+
+    zone_sub_ = node_.subscribe("/zone", 1, &RobotImagePlugin::ZoneCallback, this);
   }
 
   RobotImagePlugin::~RobotImagePlugin()
@@ -105,6 +108,31 @@ namespace mapviz_plugins
     {
       ui_.image->setText(dialog.selectedFiles().first());
       filename_ = dialog.selectedFiles().first().toStdString();
+      LoadImage();
+    }
+  }
+
+  void RobotImagePlugin::ZoneCallback(const std_msgs::String zone)
+  {
+
+    if(zone_ != zone.data)
+    {
+      ROS_INFO("%s to %s", zone_.c_str(), zone.data.c_str());
+      if(zone.data == "gran" || zone.data == "blanding")
+      {
+        ROS_INFO("Changed to gran zone");
+        filename_ = "/home/tyno/catkin_ws/src/planter_guide/arrow_spruce.png";
+      } else if(zone.data == "bjork")
+      {
+        ROS_INFO("Changed to bjork zone");
+        filename_ = "/home/tyno/catkin_ws/src/planter_guide/arrow_birch.png";
+      } else {
+        ROS_INFO("Non-designated zone");
+        filename_ = "/home/tyno/catkin_ws/src/planter_guide/arrow.png";
+      }
+
+      zone_ = zone.data;
+
       LoadImage();
     }
   }
