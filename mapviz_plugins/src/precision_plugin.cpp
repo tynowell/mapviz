@@ -21,7 +21,8 @@
 
 #include <mapviz/select_topic_dialog.h>
 
-#include <gdal/gdal.h>
+#include "/usr/local/include/gdal.h"
+// #include <gdal/gdal.h>
 
 // Declare plugin
 #include <pluginlib/class_list_macros.h>

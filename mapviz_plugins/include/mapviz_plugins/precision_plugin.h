@@ -14,8 +14,8 @@
 #include <QWidget>
 
 // GDAL
-#include <gdal/gdal.h>
-#include <gdal/ogrsf_frmts.h>
+#include "/usr/local/include/gdal.h"
+#include "/usr/local/include/ogrsf_frmts.h"
 
 // ROS libraries
 #include <ros/ros.h>

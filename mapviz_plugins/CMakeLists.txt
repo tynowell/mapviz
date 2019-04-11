@@ -198,6 +198,7 @@ target_link_libraries(${PROJECT_NAME}
     ${GLUT_LIBRARY}
     ${OpenCV_LIBS}
     ${Qt_LIBRARIES}
+		${GDAL_LIBRARIES}
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES

@@ -121,14 +121,14 @@ namespace mapviz_plugins
       if(zone.data == "gran" || zone.data == "blanding")
       {
         ROS_INFO("Changed to gran zone");
-        filename_ = "/home/tyno/catkin_ws/src/planter_guide/arrow_spruce.png";
+        filename_ = "/home/nvidia/catkin_ws/src/planter_guide/arrow_spruce.png";
       } else if(zone.data == "bjork")
       {
         ROS_INFO("Changed to bjork zone");
-        filename_ = "/home/tyno/catkin_ws/src/planter_guide/arrow_birch.png";
+        filename_ = "/home/nvidia/catkin_ws/src/planter_guide/arrow_birch.png";
       } else {
         ROS_INFO("Non-designated zone");
-        filename_ = "/home/tyno/catkin_ws/src/planter_guide/arrow.png";
+        filename_ = "/home/nvidia/catkin_ws/src/planter_guide/arrow.png";
       }
 
       zone_ = zone.data;
