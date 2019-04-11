@@ -146,9 +146,11 @@ namespace mapviz_plugins
     poDS = (GDALDataset*) GDALOpenEx(shapefile_.c_str(), GDAL_OF_VECTOR, NULL, NULL, NULL );
     if( poDS == NULL )
     {
-        ROS_ERROR("Shapefile open failed.");
+      ROS_ERROR("Failed to open shapefile.");
+      return;
+    } else {
+      ROS_INFO("Successfully opened shapefile.");
     }
-    ROS_INFO("Successfully opened shapefile.");
 
     // Isolate polygons with designation
     poLayer = poDS->GetLayer(0);
