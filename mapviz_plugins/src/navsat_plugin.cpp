@@ -124,6 +124,7 @@ namespace mapviz_plugins
     {
       initialized_ = true;
       has_message_ = true;
+			PrintInfo("OK.");
     }
 
     static tf::TransformBroadcaster br;
